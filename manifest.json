@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "Chrome Skeleton App",
+  "version": "0.0.1",
+  "minimum_chrome_version": "29",
+  "app": {
+    "background": {
+      "scripts": ["main.js"]
+    }
+  }
+}
