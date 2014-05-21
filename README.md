@@ -1,7 +1,7 @@
-chrome-app-skeleton
-===================
+chrome-app-serial
+=================
 
-This is a boilerplate that provides a skeleton Chrome App implementation. It is useful for starting a new Chrome App from scratch, without a bunch copy & paste.
+This is a simple Chrome App using the Chrome Serial API.
 
 ## Prerequisites
 * Git - Download and install [Git](http://git-scm.com/downloads).
