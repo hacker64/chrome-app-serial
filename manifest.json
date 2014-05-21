@@ -1,11 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Chrome Skeleton App",
+  "name": "Chrome Serial App",
   "version": "0.0.1",
-  "minimum_chrome_version": "29",
+  "minimum_chrome_version": "33",
   "app": {
     "background": {
       "scripts": ["main.js"]
     }
-  }
+  },
+  "permissions" : ["serial"]
 }

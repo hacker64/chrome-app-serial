@@ -12,7 +12,7 @@ chrome.app.runtime.onLaunched.addListener(function() {
   var height = Math.round(screenHeight / 2);
 
   chrome.app.window.create('index.html', {
-    id: "chromeAppSkeleton",
+    id: "chromeAppSerial",
     bounds: {
       width: width,
       height: height,
