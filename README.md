@@ -22,6 +22,8 @@ Just run `install` command for bower to install the dependencies.
 $ bower install
 ```
 
+After installing the dependencies, you will need to use the `Load Unpacked Extension...` feature of Developer mode in the Extensions tab (Tools -> Extensions) in Chrome to install the application.
+
 ## Additional Packages
 * Twitter Bootstrap - Defined as bower module in the [bower.json](bower.json) file.
 
