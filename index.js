@@ -124,6 +124,24 @@ $(function() {
 			}
 		});
 
+	$('#commFlush')
+		.click(function () {
+			if (connectedId) {
+				printConnectionCommLog(connectedId, 'Flush...');
+				chrome.serial.flush(connectedId, function (result) {
+					if (result) {
+						printConnectionCommLog(connectedId, 'Buffer flushed successfully.');
+					}
+					else {
+						printConnectionCommLog(connectedId, 'Failed to flush buffer.');
+					}
+				});
+			}
+			else {
+				printCommLog('Not connected.');
+			}
+		});
+
 	$('#commSetSendTimeout')
 		.click(function () {
 			var sendTimeoutValue = $('#sendTimeoutValue').val();
