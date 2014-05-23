@@ -6,15 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chrome Serial App</title>
 
-    <!-- Bootstrap -->
     <link href="deps/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
   </head>
-  <body class="bg-primary">
-    <h1>Chrome Serial App</h1>
+  <body>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <div class="container" id="app-content">
+      <h1>Chrome Serial App</h1>
+
+      <div>
+        <div class="form-group">
+          <label for="commPortSelect">Comm Port:</label>
+          <select class="form-control" id="commPortSelect"></select>
+        </div>
+
+        <div class="form-group">
+          <button type="button" class="btn" id="commPortScan">Scan Ports</button>
+        </div>
+
+        <div class="form-group hidden">
+          <label>Selected Comm Port:</label>
+          <p><span id="selectedCommPort">&nbsp;</span></p>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-6">
+            <label>Connection Status:</label>
+            <div><span id="connectionStatus">Disconnected</span></div>
+          </div>
+
+          <div class="col-md-6">
+            <label>Connection Id:</label>
+            <div><span id="connectionId">0</span></div>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-md-6">
+            <label for="sendTimeoutValue">Send Timeout:</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="sendTimeoutValue">
+              <span class="input-group-btn">
+                <button class="btn" type="button" id="commSetSendTimeout">Set</button>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="receiveTimeoutValue">Receive Timeout:</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="receiveTimeoutValue">
+              <span class="input-group-btn">
+                <button class="btn" type="button" id="commSetReceiveTimeout">Set</button>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label>Actions:</label>
+          <div>
+            <button type="button" class="btn" id="commConnect">Connect</button>
+            <button type="button" class="btn" id="commDisconnect">Disconnect</button>
+            <button type="button" class="btn" id="commPause">Pause</button>
+            <button type="button" class="btn" id="commUnpause">Unpause</button>
+            <button type="button" class="btn" id="commFlush">Flush</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="sendMessageContent">Send Message:</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="sendMessageContent">
+            <span class="input-group-btn">
+              <button class="btn" type="button" id="commSendMessage">Send</button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Communication Log:</label>
+          <div class="well well-sm" id="commLog">
+            <pre class="log-content" id="commLogContent"></pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <script src="deps/jquery/dist/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="deps/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
   </body>
+
+
 </html>
