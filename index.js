@@ -49,7 +49,7 @@ $(function() {
                     $('<option></option>').text(commPortName).appendTo(commPortSelect);
                 }
 
-                $('#selectedCommPort').empty().text(commPortSelect.val());
+                $('#selectedCommPort').val(commPortSelect.val());
 
                 printCommLog('Scanned comm ports.');
             });
@@ -57,12 +57,12 @@ $(function() {
 
 	$('#commPortSelect')
 		.change(function () {
-			$('#selectedCommPort').empty().text($('#commPortSelect').val());
+			$('#selectedCommPort').val($('#commPortSelect').val());
 		});
 
 	$('#commConnect')
 		.click(function () {
-			var commPortName = $('#commPortSelect').val();
+			var commPortName = $('#selectedCommPort').val();
 			if (!commPortName) {
 				printCommLog('No comm port selected.');
 				return;
