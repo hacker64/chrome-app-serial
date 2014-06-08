@@ -70,10 +70,15 @@ $(function() {
 			if (!connectedId) {
 				printCommLog('Connecting to ' + commPortName + '...');
 				chrome.serial.connect(commPortName, { 'name' : commPortName }, function (connectionInfo) {
-					connectedId = connectionInfo.connectionId;
-					printCommLog('Connected to ' + commPortName + '. Connection ID: ' + connectedId);
-					$('#connectionId').text(connectedId);
-					$('#connectionStatus').text("Connected");
+					if (connectionInfo) {
+						connectedId = connectionInfo.connectionId;
+						printCommLog('Connected to ' + commPortName + '. Connection ID: ' + connectedId);
+						$('#connectionId').text(connectedId);
+						$('#connectionStatus').text("Connected");
+					}
+					else {
+						printCommLog('Connection to ' + commPortName + ' returned no result: ' + connectionInfo);
+					}
 				});
 			}
 			else {
