@@ -24,9 +24,16 @@
           <button type="button" class="btn" id="commPortScan">Scan Ports</button>
         </div>
 
-        <div class="form-group">
-          <label>Comm Port for Connection:</label>
-          <input type="text" class="form-control" id="selectedCommPort">
+        <div class="row form-group">
+          <div class="col-md-6">
+            <label>Comm Port for Connection:</label>
+            <input type="text" class="form-control" id="selectedCommPort">
+          </div>
+
+          <div class="col-md-6">
+            <label>Bitrate for Connection:</label>
+            <input type="number" class="form-control" id="bitrateValue" value="115200">
+          </div>
         </div>
 
         <div class="row form-group">

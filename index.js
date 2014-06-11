@@ -63,13 +63,20 @@ $(function() {
 	$('#commConnect')
 		.click(function () {
 			var commPortName = $('#selectedCommPort').val();
+			var bitrateValue = $('#bitrateValue').val();
+			var bitrate = parseInt(bitrateValue);
+			if (isNaN(bitrate)) {
+				printCommLog('Bitrate specified is not a valid number.');
+				return;				
+			}
+
 			if (!commPortName) {
 				printCommLog('No comm port selected.');
 				return;
 			}
 			if (!connectedId) {
 				printCommLog('Connecting to ' + commPortName + '...');
-				chrome.serial.connect(commPortName, { 'name' : commPortName }, function (connectionInfo) {
+				chrome.serial.connect(commPortName, { 'name' : commPortName, 'bitrate' : bitrate }, function (connectionInfo) {
 					if (connectionInfo) {
 						connectedId = connectionInfo.connectionId;
 						printCommLog('Connected to ' + commPortName + '. Connection ID: ' + connectedId);
