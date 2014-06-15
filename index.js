@@ -34,6 +34,12 @@ $(function() {
 		commLog.scrollTop(commLog[0].scrollHeight);
     }
 
+    function printLastError() {
+    	if (chrome.runtime.lastError && chrome.runtime.lastError.message) {
+    		printCommLog("Last error: " + chrome.runtime.lastError.message);
+    	}
+    }
+
 	function printConnectionCommLog(id, msg) {
 		printCommLog('(' + id + ') ' + msg);
 	}
@@ -67,9 +73,8 @@ $(function() {
 			var bitrate = parseInt(bitrateValue);
 			if (isNaN(bitrate)) {
 				printCommLog('Bitrate specified is not a valid number.');
-				return;				
+				return;
 			}
-
 			if (!commPortName) {
 				printCommLog('No comm port selected.');
 				return;
@@ -85,6 +90,7 @@ $(function() {
 					}
 					else {
 						printCommLog('Connection to ' + commPortName + ' returned no result: ' + connectionInfo);
+						printLastError();
 					}
 				});
 			}
